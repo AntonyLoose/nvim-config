@@ -28,22 +28,38 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
     vim.keymap.set({'n', 'x'}, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
     vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
-    vim.keymap.set('n', '[d', function() vim.lsp.diagnostic.goto_next() end, opts)
-    vim.keymap.set('n', ']d', function() vim.lsp.diagnostic.goto_prev() end, opts)
+    vim.keymap.set('n', '[d', function() vim.diagnostic.goto_next() end, opts)
+    vim.keymap.set('n', ']d', function() vim.diagnostic.goto_prev() end, opts)
   end,
 })
 
 local lspconfig = require('lspconfig')
-lspconfig.ts_ls.setup({})
+lspconfig.ts_ls.setup({
+  on_attach = function(client, bufnr)
+    -- Enable formatting
+    client.server_capabilities.documentFormattingProvider = true
+
+    -- Format on save
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      callback = function()
+        vim.lsp.buf.format({ bufnr = bufnr })
+      end,
+    })
+  end,
+})
 lspconfig.cssmodules_ls.setup({})
 lspconfig.html.setup({})
 lspconfig.eslint.setup({})
+lspconfig.clangd.setup({})
+
 -- Can't be installed without another package manager
 -- lspconfig.lua_ls.setup({})
 
 -- Isn't working
 -- lspconfig.htmx.setup({})
 
+local luasnip = require('luasnip')
 local cmp = require('cmp')
 cmp.setup({
   sources = {
@@ -51,8 +67,13 @@ cmp.setup({
   },
   snippet = {
     expand = function(args)
-      -- You need Neovim v0.10 to use vim.snippet
-      vim.snippet.expand(args.body)
+        -- check if snippets exist otherwise use plain text completion
+        if luasnip.expandable() then
+            luasnip.lsp_expand(args.body)
+        else
+            print("Text Completion: ", args.body)
+            vim.inspect(args)
+        end
     end,
   },
   mapping = cmp.mapping.preset.insert({}),
