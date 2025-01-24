@@ -6,22 +6,16 @@
 git clone git@github.com:AntonyLoose/nvim-config.git
 ```
 
-## 2. Install Package Manager
+## 2. Install Language Servers
 
-```
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-```
-
-## 3. Install Packages
-
-Open nvim and run `:PackerSync`
-
-## 4. Install Language Servers
-
-You can find a list of language servers [here](https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#html)
+You can find a list of language servers [here](https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#html).
+You can also use `help lspconfig-all` to bring up all the lsps.
 
 Look at `lsp.lua` to see which servers you should install.
+
+## 3. Run Neovim
+
+When you do this `lazy.nvim` will automatically download dependencies.
 
 ---
 

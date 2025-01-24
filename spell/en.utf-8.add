@@ -1,3 +1,7 @@
 Neovim
 set
 json
+treesitter
+lsp
+Centrelink
+Leetcode
