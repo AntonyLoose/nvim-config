@@ -13,6 +13,14 @@ You can also use `help lspconfig-all` to bring up all the lsps.
 
 Look at `lsp.lua` to see which servers you should install.
 
+## 2a. Install Latex
+
+```
+sudo apt install texlive-full latexmk
+sudo apt update
+sudo apt install zathura zathura-pdf-poppler
+```
+
 ## 3. Run Neovim
 
 When you do this `lazy.nvim` will automatically download dependencies.

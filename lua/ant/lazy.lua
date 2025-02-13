@@ -57,6 +57,14 @@ require("lazy").setup({
                 { "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
                 "saadparwaiz1/cmp_luasnip"
             }
+        },
+        {
+            "lervag/vimtex",
+            version = "v2.15",
+            config = function()
+                vim.g.vimtex_view_method = "zathura"
+                vim.g.vimtex_compiler_method = "latexmk"
+            end
         }
     },
     -- automatically check for plugin updates
