@@ -15,10 +15,20 @@ Look at `lsp.lua` to see which servers you should install.
 
 ## 2a. Install Latex
 
-```
+The following installs the base:
+
+```bash
 sudo apt install texlive-full latexmk
 sudo apt update
 sudo apt install zathura zathura-pdf-poppler
+```
+
+This following installs the packages you will likely need:
+
+```bash
+tlmgr init-usertree
+tlmgr install etoolbox
+tlmgr install hyperref
 ```
 
 ## 3. Run Neovim
