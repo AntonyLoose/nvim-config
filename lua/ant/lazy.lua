@@ -39,7 +39,7 @@ require("lazy").setup({
             config = function()
                 require("lspconfig").lua_ls.setup {}
                 require("lspconfig").eslint.setup {}
-                require("lspconfig").tsserver.setup {}
+                require("lspconfig").ts_ls.setup {}
                 require("lspconfig").cssmodules_ls.setup {}
                 require("lspconfig").html.setup {}
                 require("lspconfig").clangd.setup {}
