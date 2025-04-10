@@ -34,3 +34,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- when you want to use prettier for ts files this will be useful
     end,
 })
+
+vim.notify_orig = vim.notify
+vim.notify = function(msg, ...)
+  if msg:match("tsserver is deprecated") then
+    return
+  end
+  return vim.notify_orig(msg, ...)
+end
