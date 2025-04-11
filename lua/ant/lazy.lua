@@ -36,14 +36,38 @@ require("lazy").setup({
         },
         {
             "neovim/nvim-lspconfig",
-            config = function()
-                require("lspconfig").lua_ls.setup {}
-                require("lspconfig").eslint.setup {}
-                require("lspconfig").tsserver.setup {}
-                require("lspconfig").cssmodules_ls.setup {}
-                require("lspconfig").html.setup {}
-                require("lspconfig").clangd.setup {}
-            end
+            servers = {
+                tsserver = false,         -- Disable deprecated default
+                tsserver_custom = {},     -- Let LazyVim know this exists
+                eslint = {},
+                cssmodules_ls = {},
+                html = {},
+                clangd = {},
+            },
+            setup = {
+                -- This is to get rid of the "tsserver is deprecated, use ts_ls instead", ts_ls does not exist on my MacOS for some unknown reason
+                tsserver_custom = function(_, opts)
+                    local lspconfig = require("lspconfig")
+
+                    if not lspconfig.configs.tsserver_custom then
+                        lspconfig.configs.tsserver_custom = {
+                            default_config = {
+                                name = "tsserver_custom",
+                                cmd = { "typescript-language-server", "--stdio" },
+                                filetypes = {
+                                    "javascript", "javascriptreact", "javascript.jsx",
+                                    "typescript", "typescriptreact", "typescript.tsx",
+                                },
+                                root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
+                                single_file_support = true,
+                            },
+                        }
+                    end
+
+                    lspconfig.tsserver_custom.setup(opts)
+                    return true
+                end,
+            },
         },
         {
             "hrsh7th/nvim-cmp",
