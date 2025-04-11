@@ -9,6 +9,7 @@ local fmt = require("luasnip.extras.fmt").fmt
 
 ls.add_snippets("javascript", {
     s("for", fmt("for (let i=0; i < {}; i++){{\n\t{}\n}}", { i(1), i(2) })),
+    s("await", fmt("await new Promise((res, rej) => setTimeout(res, {}));", { i(1) })),
     s("leet",
         fmt(
             "const assert = require('assert');\n\nfunction {}({}) {{\n\n}}\n\n// --- Testing --- //\n\n{}",
