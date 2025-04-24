@@ -15,6 +15,6 @@ ls.add_snippets("javascript", {
     s("await", fmt("await new Promise((res, rej) => setTimeout(res, {}));", { i(1) })),
     s("leet",
         fmt(
-            "const assert = require('assert');\n\nfunction {}({}) {{\n\n}}\n\n// --- Testing --- //\n\n{}",
-            { i(1), i(2), i(3) }))
+            "const assert = require('assert');\n\n/**\n* {}\n*/\nfunction {}({}) {{\n\n}}\n\n// --- Testing --- //\n\n{}",
+            { i(1), i(2), i(3), i(4) }))
 })
