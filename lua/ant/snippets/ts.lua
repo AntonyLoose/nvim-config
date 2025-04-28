@@ -10,6 +10,7 @@ local fmt = require("luasnip.extras.fmt").fmt
 ls.add_snippets("typescript", {
     s("/*", fmt("/*\n* {}\n*/", { i(1) })),
     s("/**", fmt("/**\n* {}\n*/", { i(1) })),
+    s("//-", fmt("// ---- {} ---- //", { i(1) })),
     s("for", fmt("for (let {}=0; {} < {}; {}++){{\n\t{}\n}}", { i(1), i(2), i(3), i(4), i(5) })),
     s("forr", fmt("for (const {} of {}){{\n\t{}\n}}", { i(1), i(2), i(3) })),
     s("await", fmt("await new Promise((res, rej) => setTimeout(res, {}));", { i(1) })),
