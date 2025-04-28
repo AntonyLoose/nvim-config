@@ -23,9 +23,11 @@ require("lazy").setup({
             dependencies = { "nvim-lua/plenary.nvim" }
         },
         {
-            "rose-pine/nvim",
+            "folke/tokyonight.nvim",
+            lazy = false,
+            priority = 1000,
             config = function()
-                vim.cmd('colorscheme rose-pine')
+                vim.cmd('colorscheme tokyonight-night')
             end
         },
         {
