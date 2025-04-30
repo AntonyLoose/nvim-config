@@ -20,6 +20,7 @@ snippets = {
     s("await", fmt("await new Promise((res, rej) => setTimeout(res, {}));", { i(1) })),
     s("class", fmt("export class {} {{\n\tpublic constructor({}){{\n\t{}\n\t}}\n}}", { i(1), i(2), i(3) })),
     s("error", fmt("throw new Error(`{}`);", { i(1) })),
+    s("errorm", fmt('throw new Error("Method not implemented yet.");', {})),
     s("leet",
         fmt(
             "const assert = require('assert');\n\n/**\n* {}\n*/\nfunction {}({}) {{\n\n}}\n\n// --- Testing --- //\n\n{}",
