@@ -10,8 +10,8 @@ local rep = require("luasnip.extras").rep
 local fmt = require("luasnip.extras.fmt").fmt
 
 snippets = {
-    s("/*", fmt("/*\n* {}\n*/", { i(1) })),
-    s("/**", fmt("/**\n* {}\n*/", { i(1) })),
+    s("/*", fmt("/*\n * {}\n */", { i(1) })),
+    s("/**", fmt("/**\n * {}\n */", { i(1) })),
     s("//-", fmt("// ---- {} ---- //", { i(1) })),
     s("log", fmt('console.log("----- {} -----");', { i(1) })),
     s("?", fmt("{} ? {} : {}", { i(1), i(2), i(3) })),
