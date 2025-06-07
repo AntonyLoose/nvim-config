@@ -39,12 +39,12 @@ require("lazy").setup({
         {
             "neovim/nvim-lspconfig",
             config = function()
-                require("lspconfig").tsserver.setup {}
                 require("lspconfig").lua_ls.setup {}
+                require("lspconfig").tsserver.setup {}
                 require("lspconfig").eslint.setup {}
-                require("lspconfig").cssmodules_ls.setup {}
                 require("lspconfig").html.setup {}
-                require("lspconfig").clangd.setup {}
+                require("lspconfig").css_variables.setup {}
+                require("lspconfig").bashls.setup {}
             end
         },
         {
