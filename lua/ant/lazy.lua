@@ -32,6 +32,7 @@ require("lazy").setup({
         },
         {
             'nvim-treesitter/nvim-treesitter',
+            build = ":TSUpdate",
             opts = {
                 highlight = { enable = true }
             }
@@ -40,7 +41,7 @@ require("lazy").setup({
             "neovim/nvim-lspconfig",
             config = function()
                 require("lspconfig").lua_ls.setup {}
-                require("lspconfig").tsserver.setup {}
+                require("lspconfig").ts_ls.setup {}
                 require("lspconfig").eslint.setup {}
                 require("lspconfig").html.setup {}
                 require("lspconfig").css_variables.setup {}
