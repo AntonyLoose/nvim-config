@@ -31,6 +31,9 @@ require("lazy").setup({
             end
         },
         {
+            "vague2k/vague.nvim",
+        },
+        {
             'nvim-treesitter/nvim-treesitter',
             build = ":TSUpdate",
             opts = {
