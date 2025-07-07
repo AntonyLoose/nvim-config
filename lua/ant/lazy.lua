@@ -34,6 +34,28 @@ require("lazy").setup({
             "vague2k/vague.nvim",
         },
         {
+            'everviolet/nvim',
+            name = 'evergarden',
+            priority = 1000, -- Colorscheme plugin is loaded first before any other plugins
+            opts = {
+                theme = {
+                    variant = 'fall', -- 'winter'|'fall'|'spring'|'summer'
+                    accent = 'green',
+                },
+                editor = {
+                    transparent_background = false,
+                    sign = { color = 'none' },
+                    float = {
+                        color = 'mantle',
+                        invert_border = false,
+                    },
+                    completion = {
+                        color = 'surface0',
+                    },
+                },
+            }
+        },
+        {
             'nvim-treesitter/nvim-treesitter',
             build = ":TSUpdate",
             opts = {

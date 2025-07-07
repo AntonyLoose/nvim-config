@@ -5,4 +5,4 @@ function Color_Terminal(color)
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
-Color_Terminal("vague")
+Color_Terminal("evergarden")
