@@ -71,6 +71,7 @@ require("lazy").setup({
                 require("lspconfig").html.setup {}
                 require("lspconfig").css_variables.setup {}
                 require("lspconfig").bashls.setup {}
+                require("lspconfig").texlab.setup {}
             end
         },
         {
