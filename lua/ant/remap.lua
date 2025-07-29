@@ -17,4 +17,5 @@ vim.keymap.set("v", "<leader>d", '"_d')
 
 vim.keymap.set("v", "<leader>d", '"_d')
 
-vim.keymap.set('n', "<leader>lc", ":w<CR>:!pdflatex % && pdflatex %<CR>", { noremap = true, silent = false })
+vim.keymap.set('n', "<leader>lc", ":w<CR>:!pdflatex --shell-escape % && pdflatex --shell-escape %<CR>",
+    { noremap = true, silent = false })
