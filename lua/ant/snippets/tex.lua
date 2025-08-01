@@ -7,7 +7,7 @@ local fmt = require("luasnip.extras.fmt").fmt
 local rep = require("luasnip.extras").rep
 
 ls.add_snippets("tex", {
-    s("begin", fmt("\\begin{{{}}}\n\n\\end{{{}}}", { i(1), rep(1) })),
+    s("begin", fmt("\\begin{{{}}}\n\t\\item {} \n\\end{{{}}}", { i(1), i(2), rep(1) })),
     s("init", fmt([[
         %! TEX root = ./{}
 
