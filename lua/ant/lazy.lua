@@ -65,13 +65,35 @@ require("lazy").setup({
         {
             "neovim/nvim-lspconfig",
             config = function()
-                require("lspconfig").lua_ls.setup {}
-                require("lspconfig").ts_ls.setup {}
-                require("lspconfig").eslint.setup {}
-                require("lspconfig").html.setup {}
-                require("lspconfig").css_variables.setup {}
-                require("lspconfig").bashls.setup {}
-                require("lspconfig").texlab.setup {}
+                local lsp = require("lspconfig")
+                local util = require("lspconfig.util")
+
+                lsp.lua_ls.setup {}
+                lsp.ts_ls.setup {}
+                lsp.eslint.setup {}
+                lsp.html.setup {}
+                lsp.css_variables.setup {}
+                lsp.bashls.setup {}
+                lsp.texlab.setup {}
+                lsp.lemminx.setup {}
+                lsp.kotlin_language_server.setup {
+                    init_options = {
+                        gradleWrapperEnabled = true
+                    },
+                    root_dir = function(fname)
+                        local gradle_root = util.root_pattern("settings.gradle", "settings.gradle.kts")(fname)
+                        if gradle_root then
+                            return gradle_root
+                        end
+
+                        local git_root = util.root_pattern(".git")(fname)
+                        if git_root then
+                            return git_root
+                        end
+
+                        return util.path.dirname(fname)
+                    end
+                }
             end
         },
         {
