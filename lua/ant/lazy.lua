@@ -91,7 +91,7 @@ require("lazy").setup({
                             return git_root
                         end
 
-                        return util.path.dirname(fname)
+                        return util.path.dirname
                     end
                 }
             end
