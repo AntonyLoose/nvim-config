@@ -66,9 +66,7 @@ require("lazy").setup({
             "neovim/nvim-lspconfig",
             config = function()
                 local lsp = require("lspconfig")
-                local util = require("lspconfig.util")
 
-                lsp.lua_ls.setup {}
                 lsp.ts_ls.setup {}
                 lsp.eslint.setup {}
                 lsp.html.setup {}
@@ -76,25 +74,30 @@ require("lazy").setup({
                 lsp.bashls.setup {}
                 lsp.texlab.setup {}
                 lsp.lemminx.setup {}
-                lsp.kotlin_language_server.setup {
-                    init_options = {
-                        gradleWrapperEnabled = true
-                    },
-                    root_dir = function(fname)
-                        local gradle_root = util.root_pattern("settings.gradle", "settings.gradle.kts")(fname)
-                        if gradle_root then
-                            return gradle_root
-                        end
-
-                        local git_root = util.root_pattern(".git")(fname)
-                        if git_root then
-                            return git_root
-                        end
-
-                        return util.path.dirname
-                    end
+                lsp.lua_ls.setup {
+                    settings = {
+                        Lua = {
+                            diagnostics = {
+                                globals = { "vim" },
+                            },
+                            workspace = {
+                                checkThirdParty = false,
+                                library = {
+                                    vim.env.VIMRUNTIME,
+                                },
+                            },
+                            hint = {
+                                enable = true,
+                            },
+                            telemetry = { enable = false },
+                        }
+                    }
                 }
             end
+        },
+        {
+            "folke/neodev.nvim",
+            config = true
         },
         {
             "hrsh7th/nvim-cmp",
