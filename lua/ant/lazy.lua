@@ -74,6 +74,7 @@ require("lazy").setup({
                 lsp.bashls.setup {}
                 lsp.texlab.setup {}
                 lsp.lemminx.setup {}
+                lsp.pyright.setup {}
                 lsp.lua_ls.setup {
                     settings = {
                         Lua = {
