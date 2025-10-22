@@ -33,4 +33,4 @@ snippets = {
 
 ls.add_snippets("javascript", snippets)
 ls.add_snippets("typescript", snippets)
-ls.add_snippets("tsx", snippets)
+ls.add_snippets("typescriptreact", snippets)
