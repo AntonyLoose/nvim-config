@@ -5,5 +5,5 @@ function Color_Terminal(color)
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
-// Leave empty or use evergarden if language not supported.
-Color_Terminal("xcode")
+-- Leave empty or use evergarden if language not supported.
+Color_Terminal()
