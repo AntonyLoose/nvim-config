@@ -33,6 +33,7 @@ require("lazy").setup({
         {
             "vague2k/vague.nvim",
         },
+        { "nomis51/nvim-xcode-theme" },
         {
             'everviolet/nvim',
             name = 'evergarden',
