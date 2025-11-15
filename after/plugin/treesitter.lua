@@ -9,6 +9,8 @@ require 'nvim-treesitter.configs'.setup {
         "markdown_inline",
         "javascript",
         "typescript",
+        "python",
+        "tsx",
     },
 
     -- Automatically install missing parsers when entering buffer
