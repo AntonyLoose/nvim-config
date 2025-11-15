@@ -15,15 +15,15 @@ function wrap(x, low, high)
     return ((x - low) % (high - low + 1)) + low
 end
 
-local currentColorIndex = 1
+local currentColorIndex = 2
 vim.keymap.set(
     "n",
     "<leader>nt",
     function()
-        Color_Terminal(colors[currentColorIndex])
-
         local index = currentColorIndex + 1
         currentColorIndex = wrap(index, 0, #colors)
+
+        Color_Terminal(colors[currentColorIndex])
     end
 )
 
