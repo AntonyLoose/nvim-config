@@ -27,3 +27,12 @@ require 'nvim-treesitter.configs'.setup {
         additional_vim_regex_highlighting = false,
     },
 }
+
+-- This is required to fix crazy indenting for python
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "python",
+    callback = function()
+        vim.bo.indentexpr = ""
+        vim.bo.smartindent = false
+    end,
+})
