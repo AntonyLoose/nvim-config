@@ -1,9 +1,29 @@
 local ts = require('telescope')
 ts.setup({
     defaults = {
-        file_ignore_patterns = { "node_modules" }
-    }
+        file_ignore_patterns = {
+            "%.venv",
+            "venv",
+            "%.git",
+            "node_modules",
+        }
+    },
+    vimgrep_arguments = {
+        "rg",
+        "--hidden",
+        "--no-ignore",
+        "--color=never",
+        "--with-filename",
+        "--line-number",
+        "--column",
+    },
 })
+
+-- We need to tell telescope where rg is, as it gets confused in virtual environments
+local rg = vim.fn.exepath("rg")
+if rg == "" then
+    rg = "/usr/bin/rg"
+end
 
 local builtin = require("telescope.builtin")
 vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = 'Telescope find files' })
