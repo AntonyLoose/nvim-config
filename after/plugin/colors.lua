@@ -21,7 +21,7 @@ vim.keymap.set(
     "<leader>nt",
     function()
         local index = currentColorIndex + 1
-        currentColorIndex = wrap(index, 0, #colors)
+        currentColorIndex = wrap(index, 1, #colors)
 
         Color_Terminal(colors[currentColorIndex])
     end
