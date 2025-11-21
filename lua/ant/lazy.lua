@@ -76,6 +76,27 @@ require("lazy").setup({
                 lsp.texlab.setup {}
                 lsp.lemminx.setup {}
                 lsp.pyright.setup {}
+                lsp.yamlls.setup {
+                    settings = {
+                        yaml = {
+                            -- AWS development
+                            customTags = {
+                                "!Sub scalar",
+                                "!Ref scalar",
+                                "!GetAtt scalar",
+                                "!Join sequence",
+                                "!FindInMap sequence",
+                                "!Select sequence",
+                                "!Split sequence",
+                                "!If sequence",
+                                "!Equals sequence",
+                                "!And sequence",
+                                "!Or sequence",
+                                "!Not sequence",
+                            }
+                        }
+                    }
+                }
                 lsp.lua_ls.setup {
                     settings = {
                         Lua = {
