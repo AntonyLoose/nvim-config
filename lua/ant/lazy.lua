@@ -71,6 +71,7 @@ require("lazy").setup({
                 lsp.ts_ls.setup {}
                 lsp.eslint.setup {}
                 lsp.html.setup {}
+                lsp.cssls.setup {}
                 lsp.css_variables.setup {}
                 lsp.bashls.setup {}
                 lsp.texlab.setup {}
