@@ -141,6 +141,20 @@ require("lazy").setup({
                 vim.g.vimtex_view_method = "zathura"
                 vim.g.vimtex_compiler_method = "latexmk"
             end
+        },
+        {
+            "nvim-tree/nvim-tree.lua",
+            dependencies = { "nvim-tree/nvim-web-devicons" },
+        },
+        {
+            "antosha417/nvim-lsp-file-operations",
+            dependencies = {
+                "nvim-lua/plenary.nvim",
+                "nvim-tree/nvim-tree.lua",
+            },
+            config = function()
+                require("lsp-file-operations").setup()
+            end
         }
     },
     -- automatically check for plugin updates
