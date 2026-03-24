@@ -8,14 +8,15 @@ end
 local colors = {
     "evergarden",
     "tokyonight-night",
-    "xcode"
+    "xcode",
+    "github_dark_dimmed",
 }
 
 function wrap(x, low, high)
     return ((x - low) % (high - low + 1)) + low
 end
 
-local currentColorIndex = 2
+local currentColorIndex = 4
 vim.keymap.set(
     "n",
     "<leader>nt",

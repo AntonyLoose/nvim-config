@@ -34,3 +34,5 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- when you want to use prettier for ts files this will be useful
     end,
 })
+
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})

@@ -35,6 +35,12 @@ require("lazy").setup({
         },
         { "nomis51/nvim-xcode-theme" },
         {
+            'projekt0n/github-nvim-theme',
+            name = 'github-theme',
+            lazy = false,    -- make sure we load this during startup if it is your main colorscheme
+            priority = 2000, -- make sure to load this before all the other start plugins
+        },
+        {
             'everviolet/nvim',
             name = 'evergarden',
             priority = 1000, -- Colorscheme plugin is loaded first before any other plugins
